@@ -10,7 +10,7 @@ export default class Random extends Component {
 		this.onPressGenerate = this.onPressGenerate.bind(this);
 		this.state = { 
 			text: '',
-			names: ["Saxon", "Max", "Jack"],
+			names: [],
 		};
 	}
 

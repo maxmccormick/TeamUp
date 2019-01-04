@@ -26,19 +26,34 @@ export default class Smart extends Component {
     	})
   	}
 
+  	ratingCompleted(ratingIndex, rating) {
+  		let players = [...this.state.players];
+  		players = players.map((player, index) => {
+  			if (ratingIndex !== index) {
+  				return player
+  			}
+  			player.rating = rating;
+  			return player;
+  		})
+  		this.setState({
+    		players: players
+    	})
+  	}
+
   	onPressGenerate() {
   		const players = [...this.state.players];
   		if (players.length < 2) {
   			return
   		}
+  		players.sort((a, b) => a.rating > b.rating)
   		const teamA = [];
   		const teamB = [];
   		while (players.length) {
  			if (players.length) {
-   				teamA.push(players.splice(Math.floor(Math.random() * players.length), 1))
+   				teamA.push(players.pop().name)
  			}
  			if (players.length) {
-   				teamB.push(players.splice(Math.floor(Math.random() * players.length), 1))
+   				teamB.push(players.pop().name)
  			}
 		}
 		this.props.navigation.navigate('Teams', {
@@ -62,17 +77,16 @@ export default class Smart extends Component {
       			</View>
       			<ScrollView>
       				{this.state.players.map((player, index) => (
-      					<View key={index} style={styles.horizontal}>
+      					<View key={index}>
       						<View><Text>{player.name}</Text></View>
-      						<Rating
+ 							<Rating
 								  showRating
 								  type="star"
 								  fractions={1}
 								  startingValue={3.6}
-								  readonly
-								  imageSize={40}
-								  onFinishRating={this.ratingCompleted}
-								  style={{ paddingVertical: 10 }}
+								  imageSize={20}
+								  onFinishRating={(rating) => this.ratingCompleted(rating, index)}
+								  style={styles.rating}
 							/>
       					</View>
 

@@ -117,6 +117,9 @@ const styles = StyleSheet.create({
     justifyContent:'center',
     width: 400,
     backgroundColor: 'yellow',
+  },
+  rating: {
+    marginLeft:50,
   }
 });
 
