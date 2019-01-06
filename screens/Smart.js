@@ -15,6 +15,7 @@ export default class Smart extends Component {
 		};
 	}
 
+	//Sends inputted player names to ScrollView below, where they can be rated.
 	onPressAdd() {
 		const players = [...this.state.players];
 		if (this.state.text) {
@@ -26,6 +27,7 @@ export default class Smart extends Component {
     	})
   	}
 
+  	//sets inputted rating for each player.
   	ratingCompleted(ratingIndex, rating) {
   		let players = [...this.state.players];
   		players = players.map((player, index) => {
@@ -40,14 +42,18 @@ export default class Smart extends Component {
     	})
   	}
 
+  	//takes the player names and their ratings.
   	onPressGenerate() {
   		const players = [...this.state.players];
+  		// if there are at least two players in the list,
   		if (players.length < 2) {
   			return
   		}
+  		// then the list is sorted into highest rating -> lowest,
   		players.sort((a, b) => a.rating < b.rating)
   		const teamA = [];
   		const teamB = [];
+  		// and the players are sent into two teams,
   		while (players.length) {
  			if (players.length) {
    				teamA.push(players.pop().name)
@@ -56,6 +62,7 @@ export default class Smart extends Component {
    				teamB.push(players.pop().name)
  			}
 		}
+		// and the app navigates to the 'Teams' screen.
 		this.props.navigation.navigate('Teams', {
 			teamA, teamB
 		})
@@ -105,6 +112,7 @@ export default class Smart extends Component {
 		
 	)}
 
+	// page title
 	static navigationOptions = ({navigation}) => {
 		return {
 			title: 'Smart TeamUp',

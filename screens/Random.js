@@ -15,6 +15,7 @@ export default class Random extends Component {
 		};
 	}
 
+	//Sends inputted player names to ScrollView below.
 	onPressAdd() {
 		const names = [...this.state.names];
 		if (this.state.text) {
@@ -26,13 +27,16 @@ export default class Random extends Component {
     	})
   	}
 
+  	//takes the player names,
   	onPressGenerate() {
   		const names = [...this.state.names];
+  		// and if the list is at least two names long,
   		if (names.length < 2) {
   			return
   		}
   		const teamA = [];
   		const teamB = [];
+  		// the names are randomly arranged into two teams,
   		while (names.length) {
  			if (names.length) {
    				teamA.push(names.splice(Math.floor(Math.random() * names.length), 1))
@@ -41,6 +45,7 @@ export default class Random extends Component {
    				teamB.push(names.splice(Math.floor(Math.random() * names.length), 1))
  			}
 		}
+		//and the app navigates to the'Teams' screen.
 		this.props.navigation.navigate('Teams', {
 			teamA, teamB
 		})
@@ -75,6 +80,7 @@ export default class Random extends Component {
 		
 	)}
 
+	// page title
 	static navigationOptions = ({navigation}) => {
 		return {
 			title: 'Random TeamUp',

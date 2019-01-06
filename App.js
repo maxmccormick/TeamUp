@@ -7,6 +7,7 @@ import Smart from './screens/Smart';
 import Teams from './screens/Teams';
 
 const RootNavigator = createStackNavigator({
+  // the four screens that comprise the app
   Home: Home,
   Random: Random,
   Smart: Smart,
@@ -20,6 +21,7 @@ const RootNavigator = createStackNavigator({
   }
 });
 
+// sets the non app-specific display info at the top of the screen to white-coloured.
 StatusBar.setBarStyle('light-content');
 
 

@@ -10,10 +10,13 @@ export default class App extends Component {
     this.onPressRandom = this.onPressRandom.bind(this);
     this.onPressSmart = this.onPressSmart.bind(this);
   }
+
+  // navigates to the Random screen
   onPressRandom() {
       this.props.navigation.navigate('Random');
   }
 
+  //navigates to the Smart screen
   onPressSmart() {
     this.props.navigation.navigate('Smart');
   }
