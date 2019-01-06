@@ -45,7 +45,7 @@ export default class Smart extends Component {
   		if (players.length < 2) {
   			return
   		}
-  		players.sort((a, b) => a.rating > b.rating)
+  		players.sort((a, b) => a.rating < b.rating)
   		const teamA = [];
   		const teamB = [];
   		while (players.length) {
@@ -64,27 +64,34 @@ export default class Smart extends Component {
 	render() {
 		return(
 			<View style={styles.container}>
+				<View style={styles.tldrContainer}>
+					<Text style={styles.tldr}>
+						Add names and then touch and drag their star rating to set their skill level / 5. Smart TeamUp will generate two balanced teams.
+					</Text>
+				</View>
 				<Text style={styles.pageTitles}>Add Players</Text>
+				
 				<View style={styles.horizontal}>
 					<View style={styles.input}>
 						<TextInput
-							placeholder= 'touch here to type'
+							placeholder= 'touch here to add players'
 		        			onChangeText={(text) => this.setState({text})}
 		        			value={this.state.text}
 		      			/>
 	      			</View>
 	      			<Button onPress={this.onPressAdd} labelStyle={styles.blueLabel} buttonStyle={styles.blueButton} text='+' />
       			</View>
+      			<Text style={styles.pageTitles}>Rate Players</Text>
       			<ScrollView>
       				{this.state.players.map((player, index) => (
-      					<View key={index}>
+      					<View style={styles.horizontalSpaceBetween} key={index}>
       						<View><Text>{player.name}</Text></View>
  							<Rating
-								  showRating
 								  type="star"
-								  fractions={1}
-								  startingValue={3.6}
+								  fractions={0}
+								  startingValue={3}
 								  imageSize={20}
+
 								  onFinishRating={(rating) => this.ratingCompleted(rating, index)}
 								  style={styles.rating}
 							/>

@@ -16,7 +16,7 @@ const RootNavigator = createStackNavigator({
     headerStyle: {
       backgroundColor: 'rgb(74, 160, 236)',
     },
-    headerTintColor: 'transparent'
+    headerTintColor: 'white'
   }
 });
 

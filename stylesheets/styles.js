@@ -76,6 +76,11 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
+  horizontalSpaceBetween: {
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    marginVertical: 10,
+  },
   subheader: {
     color: 'rgb(74, 160, 236)',
     fontSize: 15,
@@ -119,7 +124,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'yellow',
   },
   rating: {
-    marginLeft:50,
+    marginLeft: 50,
   },
   teamDisplays: {
     marginTop: 30,
@@ -127,6 +132,17 @@ const styles = StyleSheet.create({
   teamText: {
     fontSize: 20,
     color: 'white',
+  },
+  tldr: {
+    marginLeft: 1,
+  },
+  tldrContainer: {
+    borderWidth: 1,
+    borderColor: 'rgb(74, 160, 236)',
+    width: '85%',
+    padding: 4,
+    marginVertical: 10,
+    borderRadius: 6,
   }
 });
 
