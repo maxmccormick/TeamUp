@@ -3,6 +3,7 @@ import { TouchableHighlight, TouchableOpacity, TextInput, Text, FlatList, Scroll
 import styles from '../stylesheets/styles';
 import Button from '../components/Buttons';
 
+
 export default class Random extends Component {
 	constructor(props) {
 		super(props);
@@ -48,23 +49,23 @@ export default class Random extends Component {
 	render() {
 		return(
 			<View style={styles.container}>
-				<Text style={styles.pageTitles}>Add Players</Text>
-				<View style={styles.horizontal}>
-					<View style={styles.input}>
-						<TextInput
-							placeholder= 'touch here to type'
-		        			onChangeText={(text) => this.setState({text})}
-		        			value={this.state.text}
-		      			/>
+					<Text style={styles.pageTitles}>Add Players</Text>
+					<View style={styles.horizontal}>
+						<View style={styles.input}>
+							<TextInput
+								placeholder= 'touch here to type'
+			        			onChangeText={(text) => this.setState({text})}
+			        			value={this.state.text}
+			      			/>
+		      			</View>
+		      			<Button onPress={this.onPressAdd} labelStyle={styles.blueLabel} buttonStyle={styles.blueButton} text='+' />
 	      			</View>
-	      			<Button onPress={this.onPressAdd} labelStyle={styles.blueLabel} buttonStyle={styles.blueButton} text='+' />
-      			</View>
-      			<ScrollView>
-      				{this.state.names.map((name, index) => (
-      					<View key={index}><Text>{name}</Text></View>
-    				))}
-      			</ScrollView>
-      			<Button onPress={this.onPressGenerate} labelStyle={styles.generateLabel} buttonStyle={styles.generateButton} text='GENERATE TEAMS' />
+	      			<ScrollView>
+	      				{this.state.names.map((name, index) => (
+	      					<View key={index}><Text>{name}</Text></View>
+	    				))}
+	      			</ScrollView>
+	      			<Button onPress={this.onPressGenerate} labelStyle={styles.generateLabel} buttonStyle={styles.generateButton} text='GENERATE TEAMS' />
 			</View>
 		
 	)}

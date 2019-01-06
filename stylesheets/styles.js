@@ -120,6 +120,13 @@ const styles = StyleSheet.create({
   },
   rating: {
     marginLeft:50,
+  },
+  teamDisplays: {
+    marginTop: 30,
+  },
+  teamText: {
+    fontSize: 20,
+    color: 'white',
   }
 });
 
